@@ -1,0 +1,22 @@
+.message {
+  display: none;
+  color: red;
+}
+
+.input-form {
+  padding: 1rem;
+  font-size: 14px;
+  border-radius: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+  outline: none;
+  border: 1px solid gray;
+}
+
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+input:invalid[focused="true"] ~ span {
+  display: block;
+}

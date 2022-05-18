@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Close, Menu, Search } from "../../../assets";
+import Container from "../../templates/container";
 
 const Header = () => {
   const [offCanvas, setOffCanvas] = useState(false);
@@ -8,7 +9,7 @@ const Header = () => {
 
   return (
     <nav className="py-10">
-      <div className="container mx-auto">
+      <Container>
         <div className="flex items-center ">
           <div className="w-3/12 lg:hidden">
             <button onClick={() => setOffCanvas(!offCanvas)}>
@@ -55,7 +56,7 @@ const Header = () => {
             <input className="bg-white border border-gray-500 w-full px-6 py-3 lg:rounded-full rounded-lg bg-search pl-12" placeholder="Search ..." />
           </div>
         </div>
-      </div>
+      </Container>
     </nav>
   );
 };

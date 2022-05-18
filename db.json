@@ -1,0 +1,28 @@
+{
+  "blogs": [
+    {
+      "title": "Fashion Model",
+      "description": "Model Hermes Lv",
+      "category": "Fashion",
+      "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/elle-collage-fashion-cheugy-1652377635.jpg",
+      "date": "18/11/2022",
+      "id": 1
+    },
+    {
+      "title": "Food Blog",
+      "description": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal, or fungal origin, and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals.",
+      "category": "Foods",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652877263/fbakrp7z0dcj2onsyjjq.jpg",
+      "date": "18/05/2022",
+      "id": 2
+    },
+    {
+      "title": "Premiere League",
+      "description": "The Premier League, also known as the English Premier League, is the top level of the English football league system. Contested by 20 clubs, it operates on a system of promotion and relegation with the English Football League. Seasons typically run from August to May with each team playing 38 matches.",
+      "category": "Sports",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652877338/izanbnvputixac0rifez.jpg",
+      "date": "18/05/2022",
+      "id": 3
+    }
+  ]
+}

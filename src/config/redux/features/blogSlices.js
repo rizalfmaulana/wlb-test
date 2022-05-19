@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const getBlogs = createAsyncThunk("blog/getBlogs", async () => {
   try {
@@ -22,27 +23,30 @@ export const getBlog = createAsyncThunk("blog/getBlog", async (id) => {
 export const deleteBlog = createAsyncThunk("blog/deleteBlog", async (id) => {
   try {
     const res = await axios.delete(`http://localhost:5001/blogs/${id}`);
+    toast.success("blog deleted successfully");
     return res;
   } catch (error) {
-    console.log(error);
+    toast.error("something went wrong please try again later");
   }
 });
 
 export const createBlog = createAsyncThunk("blog/createBlog", async (blogData) => {
   try {
     const res = await axios.post("http://localhost:5001/blogs", blogData);
+    toast.success("blog created successfully");
     return res;
   } catch (error) {
-    console.log(error);
+    toast.error("something went wrong please try again later");
   }
 });
 
 export const updateBlog = createAsyncThunk("blog/updateBlog", async ({ id, editedBlogData }) => {
   try {
     const res = await axios.put(`http://localhost:5001/blogs/${id}`, editedBlogData);
+    toast.success("blog updated successfully");
     return res;
   } catch (error) {
-    console.log(error);
+    toast.error("something went wrong please try again later");
   }
 });
 
@@ -68,6 +72,7 @@ const blogSlice = createSlice({
   name: "blog",
   initialState: {
     blogs: [],
+    top: null,
     blog: null,
     loading: false,
     error: null,
@@ -86,6 +91,7 @@ const blogSlice = createSlice({
     [getBlogs.fulfilled]: (state, action) => {
       state.loading = false;
       state.blogs = action.payload.data;
+      state.top = action.payload.data.slice(-1)[0];
     },
     [getBlogs.rejected]: (state, action) => {
       state.loading = false;

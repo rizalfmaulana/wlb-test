@@ -6,10 +6,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { createBlog, getBlog, updateBlog } from "../../../config/redux/features/blogSlices";
 import { getDate } from "../../../utils/getDate";
 import Button from "../../atoms/button";
+import Text from "../../atoms/text";
 import InputMolecules from "../../molecules/inputMolecules";
 import Container from "../../templates/container";
 
-const FormBlog = () => {
+const FormBlog = ({ id }) => {
   const [values, setValues] = useState({
     title: "",
     description: "",
@@ -19,10 +20,9 @@ const FormBlog = () => {
 
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { blog, blogs } = useSelector((state) => state.blog);
+  const { blog } = useSelector((state) => state.blog);
   const dispatch = useDispatch();
 
-  const { id } = useParams();
   useEffect(() => {
     if (id) {
       setEditMode(true);
@@ -85,22 +85,10 @@ const FormBlog = () => {
       const currentDate = getDate();
       if (!editMode) {
         const blogData = { ...values, date: currentDate };
-        // const res = await axios.post("http://localhost:5001/blogs", updatedBlogData);
-        // if (res.status === 201) {
-        //   toast.success("blog added successfully");
-        // } else {
-        //   toast.error("something went wrong, please try again later");
-        // }
         dispatch(createBlog(blogData));
         console.log(blogData);
       } else {
         const editedBlogData = { ...values, date: currentDate };
-        // const res = await axios.put(`http://localhost:5001/blogs/${id}`, editedBlogData);
-        // if (res.status === 200) {
-        //   toast.success("blog updated successfully");
-        // } else {
-        //   toast.error("something went wrong, please try again later");
-        // }
         dispatch(updateBlog({ id, editedBlogData }));
       }
       setValues({ title: "", description: "", category: "", imageUrl: "" });
@@ -109,7 +97,9 @@ const FormBlog = () => {
   };
   return (
     <Container>
-      <h2 className="text-2xl mb-10 text-center">{editMode ? "Edit Blog" : "Create New Blog"}</h2>
+      <Text Tag="h3" color="black" size="xl3" weight="bold" className="mb-10 text-center">
+        {editMode ? "Edit Blog" : "Create New Blog"}
+      </Text>
       <form onSubmit={handleSubmit} className="max-w-lg  mx-auto">
         <div className="mb-4 space-y-4">
           {inputs.map((item) => (

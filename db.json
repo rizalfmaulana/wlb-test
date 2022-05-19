@@ -49,14 +49,6 @@
       "id": 6
     },
     {
-      "title": "important technology ",
-      "description": "Information technology is important in our lives because it helps to deal with every day's dynamic things. Technology offers various tools to boost development and to exchange information. Both these things are the objective of IT to make tasks easier and to solve many problems. ",
-      "category": "Tech",
-      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652944425/acwhuuu3i2gsvciqavvq.jpg",
-      "date": "19/05/2022",
-      "id": 7
-    },
-    {
       "title": "Fashion design",
       "description": "Fashion design is the art of applying design, aesthetics, clothing construction and natural beauty to clothing and its accessories. It is influenced by culture and different trends, and has varied over time and place.",
       "category": "Fashion",
@@ -71,6 +63,14 @@
       "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652946667/kdyhvhqcphqktpkhgayv.jpg",
       "date": "19/05/2022",
       "id": 9
+    },
+    {
+      "title": "Exercise",
+      "description": "You will assess the physical and health conditions of clients, create appropriate exercise plans, and monitor their improvement. You will also explain applicable safety rules and regulations (e.g. use of equipment). Ultimately, you will help our clients have fun and improve their health through exercise.",
+      "category": "Sports",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652951918/zhhmn5dyjxfpjxpfrr4a.jpg",
+      "date": "19/05/2022",
+      "id": 10
     }
   ]
 }

@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Badge from "../../components/atoms/badge";
+import Text from "../../components/atoms/text";
 import CardBlog from "../../components/molecules/CardBlog";
+import DetailPost from "../../components/organisms/detailPost";
+import OtherBlogs from "../../components/organisms/otherBlogs";
 import Layout from "../../components/templates/default";
-import { useBlogCategoryQuery, useBlogQuery, useDeleteBlogMutation } from "../../config/redux/api/blogs/blogsApi";
 import { categoryBlog, deleteBlog, getBlog } from "../../config/redux/features/blogSlices";
 
 const Blog = () => {
   const { id } = useParams();
-  //   const { data, isLoading } = useBlogQuery(id);
-  //   const { data: datas } = useBlogCategoryQuery(data?.category);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { blog, blogs, loading } = useSelector((state) => state.blog);
@@ -28,40 +27,20 @@ const Blog = () => {
 
   useEffect(() => {
     dispatch(categoryBlog(blog?.category));
-  }, []);
+  }, [blog]);
 
   console.log(blogs);
   if (loading) return <h3>Loading ...</h3>;
   return (
     <Layout>
-      <Link to="/">Back to Home</Link>
+      <Link to="/" className="hover:text-blue-500">
+        {"<-"}Back to Home
+      </Link>
       <div className="max-w-screen-md mx-auto">
         {blog && (
           <>
-            <img src={blog.imageUrl} alt={blog.title} />
-            <div className="flex justify-end mt-3 space-x-2">
-              <Link to={`/edit-blog/${blog.id}`} className="text-blue-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                </svg>
-              </Link>
-              <button className="text-red-600" onClick={handleDelete}>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex items-center space-x-3 text-black/60">
-              <Badge>{blog.category}</Badge>
-              <span>&bull;</span>
-              <div>{blog.date}</div>
-            </div>
-            <h3>{blog.title}</h3>
-            <p>{blog.description}</p>
-            <div>
-              <h3>Other Blogs</h3>
-              <div className="grid grid-cols-2 gap-4">{blogs && blogs.filter((item) => item.title !== blog.title).map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>
-            </div>
+            <DetailPost {...blog} handleDelete={handleDelete} />
+            <OtherBlogs />
           </>
         )}
       </div>

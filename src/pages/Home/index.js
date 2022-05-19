@@ -9,10 +9,9 @@ import Layout from "../../components/templates/default";
 import { categoryBlog, getBlogs, searchBlog } from "../../config/redux/features/blogSlices";
 
 const Home = () => {
-  const { blogs } = useSelector((state) => state.blog);
+  const { blogs, top } = useSelector((state) => state.blog);
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
-
   const [activeFilter, setActiveFilter] = useState("All");
 
   const handleFilter = (item) => {
@@ -37,15 +36,12 @@ const Home = () => {
     dispatch(searchBlog(searchValue));
   };
 
-  const data = blogs?.slice(-1)[0];
-  console.log(data);
-
   return (
     <Layout>
       {blogs && (
         <>
           <Hero />
-          <Featured data={data} />
+          <Featured data={top} />
           <FilterBlog activeFilter={activeFilter} handleFilter={handleFilter} />
           <Search searchValue={searchValue} handleChange={handleChange} handleSubmit={handleSubmit} />
           <div className="grid grid-cols-3 gap-4">{blogs.length > 0 && blogs?.map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>

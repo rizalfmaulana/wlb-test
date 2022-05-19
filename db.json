@@ -1,12 +1,12 @@
 {
   "blogs": [
     {
-      "title": "Fashion Model",
-      "description": "Model Hermes Lv",
+      "id": 1,
+      "title": "Girl Fashion Model ",
+      "description": "Model Hermes Lv gucci",
       "category": "Fashion",
       "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/elle-collage-fashion-cheugy-1652377635.jpg",
-      "date": "18/11/2022",
-      "id": 1
+      "date": "18/05/2022"
     },
     {
       "title": "Food Blog",
@@ -23,6 +23,22 @@
       "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652877338/izanbnvputixac0rifez.jpg",
       "date": "18/05/2022",
       "id": 3
+    },
+    {
+      "title": "Delicious Foods",
+      "description": "Delectable food is delicious, tasty, mouth-watering, appetizing, scrumptious, luscious, enjoyable, palatable, delightful, toothsome, pleasing, satisfying. Never tasteless, disgusting, or nauseating.",
+      "category": "Foods",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652887101/hjy2pgrcazvzy7qvuqhl.jpg",
+      "date": "18/05/2022",
+      "id": 4
+    },
+    {
+      "title": "Lionel Messi",
+      "description": "Lionel Andrés Messi, also known as Leo Messi, is an Argentine professional footballer who plays as a forward for Ligue 1 club Paris Saint-Germain and captains the Argentina national team.",
+      "category": "Sports",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652887347/brm6efx0jxhwoxlz1wi0.jpg",
+      "date": "18/05/2022",
+      "id": 5
     }
   ]
 }

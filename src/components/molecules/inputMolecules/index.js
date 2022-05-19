@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "../../atoms/input";
-import "./input.css";
+import "./input.scss";
 
 const InputMolecules = (props) => {
   const [focus, setFocus] = useState(false);

@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { createBlog, getBlog, updateBlog } from "../../../config/redux/features/blogSlices";
 import { getDate } from "../../../utils/getDate";
 import Button from "../../atoms/button";
 import InputMolecules from "../../molecules/inputMolecules";
@@ -17,6 +19,8 @@ const FormBlog = () => {
 
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { blog, blogs } = useSelector((state) => state.blog);
+  const dispatch = useDispatch();
 
   const { id } = useParams();
   useEffect(() => {
@@ -35,8 +39,8 @@ const FormBlog = () => {
   }, [id]);
 
   const getSingleBlog = async (id) => {
-    const res = await axios.get(`http://localhost:5001/blogs/${id}`);
-    setValues({ ...res.data });
+    dispatch(getBlog(id));
+    setValues({ ...blog });
   };
   const { title, description, category, imageUrl } = values;
 
@@ -80,21 +84,24 @@ const FormBlog = () => {
     if (title && description && category && imageUrl) {
       const currentDate = getDate();
       if (!editMode) {
-        const updatedBlogData = { ...values, date: currentDate };
-        const res = await axios.post("http://localhost:5001/blogs", updatedBlogData);
-        if (res.status === 201) {
-          toast.success("blog added successfully");
-        } else {
-          toast.error("something went wrong, please try again later");
-        }
+        const blogData = { ...values, date: currentDate };
+        // const res = await axios.post("http://localhost:5001/blogs", updatedBlogData);
+        // if (res.status === 201) {
+        //   toast.success("blog added successfully");
+        // } else {
+        //   toast.error("something went wrong, please try again later");
+        // }
+        dispatch(createBlog(blogData));
+        console.log(blogData);
       } else {
         const editedBlogData = { ...values, date: currentDate };
-        const res = await axios.put(`http://localhost:5001/blogs/${id}`, editedBlogData);
-        if (res.status === 200) {
-          toast.success("blog updated successfully");
-        } else {
-          toast.error("something went wrong, please try again later");
-        }
+        // const res = await axios.put(`http://localhost:5001/blogs/${id}`, editedBlogData);
+        // if (res.status === 200) {
+        //   toast.success("blog updated successfully");
+        // } else {
+        //   toast.error("something went wrong, please try again later");
+        // }
+        dispatch(updateBlog({ id, editedBlogData }));
       }
       setValues({ title: "", description: "", category: "", imageUrl: "" });
       navigate("/");
@@ -129,7 +136,7 @@ const FormBlog = () => {
           </select>
         </div>
         <Button type="submit" disabled={loading}>
-          {editMode ? "Update" : "Publish"}
+          {editMode ? "Update" : loading ? "loading" : "Publish"}
         </Button>
       </form>
     </Container>

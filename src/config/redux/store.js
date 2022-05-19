@@ -1,9 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { blogsApi } from "./api/blogs/blogsApi";
+import blogReducer from "./features/blogSlices";
 
 export const store = configureStore({
   reducer: {
-    [blogsApi.reducerPath]: blogsApi.reducer,
+    blog: blogReducer,
+    // [blogsApi.reducerPath]: blogsApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(blogsApi.middleware),
+  middleware: getDefaultMiddleware({
+    serializableCheck: false,
+  }),
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(blogsApi.middleware),
 });

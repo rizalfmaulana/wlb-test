@@ -1,49 +1,56 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import CardBlog from "../../components/molecules/CardBlog";
+import Featured from "../../components/molecules/featured";
 import FilterBlog from "../../components/molecules/filterBlog";
+import Hero from "../../components/molecules/hero";
 import Search from "../../components/molecules/search";
 import Layout from "../../components/templates/default";
-import { useBlogSearchQuery } from "../../config/redux/api/blogs/blogsApi";
+import { categoryBlog, getBlogs, searchBlog } from "../../config/redux/features/blogSlices";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([]);
+  const { blogs } = useSelector((state) => state.blog);
+  const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState("");
-  const { data } = useBlogSearchQuery(searchValue);
-  const [activeFilter, setActiveFilter] = useState();
+
+  const [activeFilter, setActiveFilter] = useState("All");
 
   const handleFilter = (item) => {
     setActiveFilter(item);
-  };
-
-  const fetchBlog = async () => {
-    try {
-      const res = await axios.get("http://localhost:5001/blogs");
-      console.log(res);
-      setBlogs(res.data);
-    } catch (error) {
-      toast.error("something went wrong, please try again later");
+    if (item === "All") {
+      dispatch(getBlogs());
+    } else {
+      dispatch(categoryBlog(item));
     }
   };
 
   useEffect(() => {
-    fetchBlog();
+    dispatch(getBlogs());
   }, []);
-
-  useEffect(() => {
-    setBlogs(data);
-  }, [searchValue]);
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   };
-  console.log(blogs);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(searchBlog(searchValue));
+  };
+
+  const data = blogs?.slice(-1)[0];
+  console.log(data);
+
   return (
     <Layout>
-      <FilterBlog activeFilter={activeFilter} handleFilter={handleFilter} />
-      <Search searchValue={searchValue} handleChange={handleChange} />
-      <div className="grid grid-cols-3 gap-4">{blogs && blogs.map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>
+      {blogs && (
+        <>
+          <Hero />
+          <Featured data={data} />
+          <FilterBlog activeFilter={activeFilter} handleFilter={handleFilter} />
+          <Search searchValue={searchValue} handleChange={handleChange} handleSubmit={handleSubmit} />
+          <div className="grid grid-cols-3 gap-4">{blogs.length > 0 && blogs?.map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>
+        </>
+      )}
     </Layout>
   );
 };

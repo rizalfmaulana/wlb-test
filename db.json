@@ -2,18 +2,18 @@
   "blogs": [
     {
       "id": 1,
-      "title": "Girl Fashion Model ",
+      "title": "Girls Fashion Model ",
       "description": "Model Hermes Lv gucci",
       "category": "Fashion",
       "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/elle-collage-fashion-cheugy-1652377635.jpg",
-      "date": "18/05/2022"
+      "date": "19/05/2022"
     },
     {
       "title": "Food Blog",
       "description": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal, or fungal origin, and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals.",
       "category": "Foods",
       "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652877263/fbakrp7z0dcj2onsyjjq.jpg",
-      "date": "18/05/2022",
+      "date": "19/05/2022",
       "id": 2
     },
     {
@@ -39,6 +39,38 @@
       "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652887347/brm6efx0jxhwoxlz1wi0.jpg",
       "date": "18/05/2022",
       "id": 5
+    },
+    {
+      "title": "Technology",
+      "description": "Technology is the continually developing result of accumulated knowledge and application in all techniques, skills, methods, and processes used in industrial production and scientific research.",
+      "category": "Tech",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652943170/sznxwwhcnbsav9pvagdd.jpg",
+      "date": "19/05/2022",
+      "id": 6
+    },
+    {
+      "title": "important technology ",
+      "description": "Information technology is important in our lives because it helps to deal with every day's dynamic things. Technology offers various tools to boost development and to exchange information. Both these things are the objective of IT to make tasks easier and to solve many problems. ",
+      "category": "Tech",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652944425/acwhuuu3i2gsvciqavvq.jpg",
+      "date": "19/05/2022",
+      "id": 7
+    },
+    {
+      "title": "Fashion design",
+      "description": "Fashion design is the art of applying design, aesthetics, clothing construction and natural beauty to clothing and its accessories. It is influenced by culture and different trends, and has varied over time and place.",
+      "category": "Fashion",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652944706/e27r3gdn8wl5uashrqxx.jpg",
+      "date": "19/05/2022",
+      "id": 8
+    },
+    {
+      "title": "Raja Ampat ",
+      "description": "The Raja Ampat Islands are an Indonesian archipelago off the northwest tip of Bird’s Head Peninsula in West Papua. Comprising hundreds of jungle-covered islands, Raja Ampat is known for its beaches and coral reefs rich with marine life. ",
+      "category": "Travel",
+      "imageUrl": "http://res.cloudinary.com/dnkjbabna/image/upload/v1652946667/kdyhvhqcphqktpkhgayv.jpg",
+      "date": "19/05/2022",
+      "id": 9
     }
   ]
 }

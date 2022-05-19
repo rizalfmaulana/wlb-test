@@ -17,6 +17,10 @@ export const blogsApi = createApi({
       query: (category) => `blogs?category=${category}&_start=0&_end=3`,
       providesTags: ["Blog"],
     }),
+    blogFilterCategory: builder.query({
+      query: (category) => `blogs?category=${category}`,
+      providesTags: ["Blog"],
+    }),
     blogSearch: builder.query({
       query: (search) => `blogs?q=${search}`,
       providesTags: ["Blog"],
@@ -47,4 +51,4 @@ export const blogsApi = createApi({
   }),
 });
 
-export const { useBlogsQuery, useBlogQuery, useAddBlogMutation, useDeleteBlogMutation, useUpdateBlogMutation, useBlogCategoryQuery, useBlogSearchQuery } = blogsApi;
+export const { useBlogsQuery, useBlogQuery, useAddBlogMutation, useDeleteBlogMutation, useUpdateBlogMutation, useBlogCategoryQuery, useBlogSearchQuery, useBlogFilterCategoryQuery } = blogsApi;

@@ -46,15 +46,6 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div className={`lg:w-3/12 w-full absolute lg:static px-10 lg:px-0 left-0 transition-all duration-300 ease-in-out ${search ? "top-10" : "-top-40"}`}>
-            <button className="absolute top-4 right-12 lg:hidden" onClick={() => setSearch(false)}>
-              <img src={Close} alt="" />
-            </button>
-            <div className="relative">
-              <img className="absolute left-2 lg:left-4 top-4 lg:top-4" src={SearchIcon} alt="search" />
-            </div>
-            <input className="bg-white border border-gray-500 w-full px-6 py-3 lg:rounded-full rounded-lg bg-search pl-12" placeholder="Search ..." />
-          </div>
         </div>
       </Container>
     </nav>

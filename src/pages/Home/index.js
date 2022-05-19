@@ -44,7 +44,7 @@ const Home = () => {
           <Featured data={top} />
           <FilterBlog activeFilter={activeFilter} handleFilter={handleFilter} />
           <Search searchValue={searchValue} handleChange={handleChange} handleSubmit={handleSubmit} />
-          <div className="grid grid-cols-3 gap-4">{blogs.length > 0 && blogs?.map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">{blogs.length > 0 && blogs?.map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>
         </>
       )}
     </Layout>

@@ -36,7 +36,7 @@ const Blog = () => {
       <Link to="/" className="hover:text-blue-500">
         {"<-"}Back to Home
       </Link>
-      <div className="max-w-screen-md mx-auto">
+      <div className="mt-4 max-w-screen-md mx-auto">
         {blog && (
           <>
             <DetailPost {...blog} handleDelete={handleDelete} />

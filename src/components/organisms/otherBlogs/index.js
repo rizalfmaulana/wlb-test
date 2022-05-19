@@ -10,7 +10,7 @@ const OtherBlogs = () => {
       <Text Tag="h3" size="xl4" color="black" weight="bold">
         Related Blogs
       </Text>
-      <div className="grid grid-cols-2 gap-4">{blogs && blogs.filter((item) => item.title !== blog.title).map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">{blogs && blogs.filter((item) => item.title !== blog.title).map((blog) => <CardBlog key={blog.id} {...blog} />)}</div>
     </div>
   );
 };

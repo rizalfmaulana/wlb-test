@@ -3,7 +3,7 @@ import React from "react";
 const FilterBlog = ({ activeFilter, handleFilter }) => {
   const categories = ["All", "Fashion", "Games", "Sports", "Music", "Travel", "Foods", "Tech"];
   return (
-    <div className="flex justify-around items-center flex-wrap py-4 my-7 border-y border-gray-400/20">
+    <div className="flex flex-wrap justify-around items-center py-0 lg:py-4 my-7 border-y border-gray-400/20">
       {categories.map((item, index) => (
         <div
           onClick={() => handleFilter(item)}

@@ -8,7 +8,7 @@ const CardBlog = ({ title, description, date, category, id, imageUrl, size }) =>
       <Link to={`/blog/${id}`}>
         <img src={imageUrl} className={`w-full ${size ? "h-full" : "h-64"} mb-4`} alt={title} />
       </Link>
-      <DetailCard id={id} category={category} date={date} description={description} />
+      <DetailCard title={title} id={id} category={category} date={date} description={description} />
     </div>
   );
 };

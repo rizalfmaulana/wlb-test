@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Close, Menu, SearchIcon } from "../../../assets";
+import { Close, Menu } from "../../../assets";
 import Button from "../../atoms/button";
 import Container from "../../templates/container";
 
 const Header = () => {
   const [offCanvas, setOffCanvas] = useState(false);
-  const [search, setSearch] = useState(false);
 
   return (
     <nav className="py-10">
@@ -25,7 +24,11 @@ const Header = () => {
               </div>
             </Link>
           </div>
-          <div className={`bg-gradient-to-b from-gray-600 to-gray-900 lg:bg-none lg:w-7/12 transition-all ease-in-out duration-300 w-full fixed lg:static top-0 h-full lg:h-auto p-10 lg:p-0 ${offCanvas ? "left-0" : "-left-full"} `}>
+          <div
+            className={`bg-gradient-to-b from-gray-600 to-gray-900 lg:bg-none lg:w-7/12 transition-all ease-in-out duration-300 w-full fixed lg:static top-0 text-white lg:text-black h-full lg:h-auto p-10 lg:p-0 ${
+              offCanvas ? "left-0" : "-left-full"
+            } `}
+          >
             <Button icon className="absolute top-10 right-10 lg:hidden" onClick={() => setOffCanvas(false)}>
               <img src={Close} alt="" />
             </Button>
